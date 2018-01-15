@@ -50,7 +50,9 @@ MDN
   }
 
   tree.addChild = function(value){
-
+    let child = Tree(value);
+    this.root = false;
+    this.children.push(child);
   }
 
   tree.map = function(callback) {
