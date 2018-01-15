@@ -43,10 +43,12 @@ MDN
   */
 
   tree.map = function(callback) {
-    let newRoot = this.root1 //initalise new tree
-    if (this.childNode) {
-      newRoot.addChild = callback(this.childNode) //Apply map function to childNode, add to new tree
-      return this.childNode.map(callback) //recursive call to go through children of child node
+    let newTree = this.root1 //initalise new tree
+    if (this.children[0]) {
+      newTree.addChild(callback(this.children[0])) //Apply map function to childNode, add to new tree
+      return this.children[0].map(callback) //recursive call to go through children of child node
     }
-
+    if (!this.children[0]){
+      return newTree;  //If no childNode present, return newTree
+    }
   }
