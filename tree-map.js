@@ -39,16 +39,28 @@ MDN
     Begin at root, apply map, iterate through children nodes
       apply map function first, add new child to new root
     Input tree is not mutated
-
+    return newTree
   */
+  var tree = function(value){
+    let createdTree = {};
+    this.value = value;
+    this.root = true;
+    this.children = [];
+    return createdTree;
+  }
+
+  tree.addChild = function(value){
+
+  }
 
   tree.map = function(callback) {
-    let newTree = this.root1 //initalise new tree
-    if (this.children[0]) {
-      newTree.addChild(callback(this.children[0])) //Apply map function to childNode, add to new tree
+    let newTree = Tree(); //initalise new tree
+    let newTreeNode = this.root //define working node
+    if (this.root.children[0]) {
+      newTreeNode.addChild(callback(this.children[0])) //Apply map function to childNode, add to new tree
       return this.children[0].map(callback) //recursive call to go through children of child node
     }
-    if (!this.children[0]){
+    if (!this.root.children[0]){
       return newTree;  //If no childNode present, return newTree
     }
   }
