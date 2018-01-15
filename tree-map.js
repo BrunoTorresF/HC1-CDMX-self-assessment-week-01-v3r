@@ -35,3 +35,18 @@ MDN
   *  newTree.children[1].children[1].value // 14
   *  root1.value // still 1
   */
+  /*Map function: input function, output new Tree
+    Begin at root, apply map, iterate through children nodes
+      apply map function first, add new child to new root
+    Input tree is not mutated
+
+  */
+
+  tree.map = function(callback) {
+    let newRoot = this.root1 //initalise new tree
+    if (this.childNode) {
+      newRoot.addChild = callback(this.childNode) //Apply map function to childNode, add to new tree
+      return this.childNode.map(callback) //recursive call to go through children of child node
+    }
+
+  }
